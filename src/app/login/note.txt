@@ -1,0 +1,57 @@
+data binding in angular
+.......................
+
+
+tc - component
+html - view
+
+1  one way binding
+     
+     1.1 component to view
+     1.1.1 string interpolation  {{}}
+     1.1.2 property binding      [property]="value"
+
+
+     1.1viewto component
+
+     1.2.1 event binding                                      {eventname}="methord name()"
+     1.2.2 event binding using $event                         (eventname)="methordname($event)"
+     1.2.3 event building using template rendering variable   #variable
+
+
+2  two way binding
+
+
+     2.1 ngmodel      [(ngmodel)]="value"
+                        formsmodule 
+     
+
+
+   ------------  REDIRECTION IN angular -----------
+
+   navigateByUrl    -methord used to redierection
+
+   router           - class
+
+   AppRoutingModule - module
+
+   dependancy injection
+   .......................
+
+   -oru clasil ulla methordine vere classil use cheyyan
+   -in constructor  
+
+   ......steps......
+
+   access pecifier - public/private
+
+                     variable
+                     class name 
+                              private variable:classname
+
+
+
+
+..........ANGULAR SERVICES...........
+
+
