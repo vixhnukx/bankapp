@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from 'src/services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,7 @@ export class LoginComponent {
     1003:{acno:1003,username:"mega",password:123,balance:0}
   }
 
-  constructor(private router:Router){
+  constructor(private router:Router,private ds:DataService){
     
   }
   ngOninit(): void{
@@ -29,21 +30,18 @@ export class LoginComponent {
   login(){
     var acno=this.acno
     var psw=this.psw
-    var userDetails=this.userDetails
+    
 
-    if(acno in userDetails){
-      if(psw==userDetails[acno]["password"]){
-        alert("login success")
-        this.router.navigateByUrl('dashboard')
-
-      }
-      else{
-        alert("incorrect password ")
-      }
+    const result=this.ds.login(acno,psw)
+    if(result){
+      alert("login success")
+      this.router.navigateByUrl("dashboard")
     }
     else{
-      alert("user not exist")
+      alert('incorrect username or password')
     }
+
+  }
   // }
   // acnoChange(event:any){
   //   this.acno=event.target.value
@@ -87,7 +85,7 @@ export class LoginComponent {
     
     
   // }
-  }
+  
 
 
 

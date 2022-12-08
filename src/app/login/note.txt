@@ -55,3 +55,4 @@ html - view
 ..........ANGULAR SERVICES...........
 
 
+ng g s SERVICESname

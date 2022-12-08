@@ -6,7 +6,7 @@
 
 <div  id="center" class="container">
 
- <form class="form-container">
+ <form class="form-container" (ngSubmit)="login()">
    <h3>LOGIN</h3>
     <div class="mb-3">
       <label for="text" class="form-label">ac number </label>
@@ -21,6 +21,6 @@
       
       <a style="text-decoration: none;" routerLink="register">New User? Register</a>
     </div>
-    <button id="bt"  type="submit" (click)="login()" class="btn btn-primary btn-block">Submit</button>
+    <button id="bt"  type="submit" class="btn btn-primary btn-block">Submit</button>
  </form>
 </div>
