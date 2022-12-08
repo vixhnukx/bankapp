@@ -29,6 +29,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { TransactionComponent } from './transaction/transaction.component';
 
 
 
@@ -38,6 +39,7 @@ import { RegisterComponent } from './register/register.component';
     LoginComponent,
     DashboardComponent,
     RegisterComponent,
+    TransactionComponent,
    
    
   ],

@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
+  currentuser=''
+
   constructor() { }
 
 
@@ -28,8 +30,12 @@ export class DataService {
 
     var userDetails = this.userDetails
 
+
     if (acno in userDetails) {
       if (psw == userDetails[acno]["password"]) {
+        // store username
+        this.currentuser=userDetails[acno]["username"]
+
         return true
 
       }
@@ -64,16 +70,23 @@ export class DataService {
     var userDetails=this.userDetails
     var amnt=parseInt(amount)
     if(acno in userDetails){
-      if(password==userDetails[acno]['password']){
-        userDetails[acno]['balance']-=amnt
-        return userDetails[acno]['balance']
-
+      if(password==userDetails[acno]["password"]){
+        if(acno <=userDetails[acno]["balance"]){
+          userDetails[acno]['balance']-=amnt
+          return userDetails[acno]['balance']
+        }
+        else{
+          alert('insufficient balance')
+          return false
+        }
       }
       else{
+        alert('incorrect password')
         return false
       }
     }
     else{
+      alert('incorrect account number')
       return false
     }
   }
