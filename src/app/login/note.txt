@@ -56,3 +56,22 @@ html - view
 
 
 ng g s SERVICESname
+
+
+Angular directives
+...................
+
+1 - structural diarectives - to handle structured datas in view of a component
+
+     - ngFor - can directly apply in html to access elements from array
+
+
+
+form validation in angular
+...........................
+
+ we can create forms in two ways 
+     
+     1. template driven form
+
+     2. model driven form 

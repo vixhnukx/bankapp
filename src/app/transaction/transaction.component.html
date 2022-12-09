@@ -14,23 +14,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>DEBIT</td>
-            <td>1000</td>
+          <tr *ngFor="let i of transaction">
+            <th scope="row">*</th>
+            <td>{{i.type}}/-</td>
+            <td>{{i.amount}}</td>
             
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>CREDIT</td>
-            <td>1000</td>
-            
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>DEBIT</td>
-            <td>1000</td>
-          </tr>
+       
         </tbody>
       </table>
 </div>

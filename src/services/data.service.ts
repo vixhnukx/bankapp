@@ -6,15 +6,16 @@ import { Injectable } from '@angular/core';
 export class DataService {
 
   currentuser=''
+  currentacno=''
 
   constructor() { }
 
 
   userDetails: any = {
-    1000: { acno: 1000, username: "anu", password: 123, balance: 0 },
-    1001: { acno: 1001, username: "amal", password: 123, balance: 0 },
-    1002: { acno: 1002, username: "arun", password: 123, balance: 0 },
-    1003: { acno: 1003, username: "mega", password: 123, balance: 0 }
+    1000: { acno: 1000, username: "anu", password: 123, balance: 0,trnsaction:[] },
+    1001: { acno: 1001, username: "amal", password: 123, balance: 0 ,trnsaction:[]},
+    1002: { acno: 1002, username: "arun", password: 123, balance: 0 ,trnsaction:[]},
+    1003: { acno: 1003, username: "mega", password: 123, balance: 0 ,trnsaction:[]}
   }
   register(acno: any, uname: any, psw: any) {
     var userDetails = this.userDetails
@@ -22,7 +23,7 @@ export class DataService {
       return false
     }
     else {
-      userDetails[acno] = { acno, username: uname, password: psw, balance: 0 }
+      userDetails[acno] = { acno, username: uname, password: psw, balance: 0, trnsaction:[]}
       return true
     }
   }
@@ -33,6 +34,8 @@ export class DataService {
 
     if (acno in userDetails) {
       if (psw == userDetails[acno]["password"]) {
+        // accnumber
+        this.currentacno=acno
         // store username
         this.currentuser=userDetails[acno]["username"]
 
@@ -54,6 +57,7 @@ export class DataService {
     if(acno in userDetails){
       if(password==userDetails[acno]['password']){
         userDetails[acno]['balance']+=amnt
+        userDetails[acno]["trnsaction"].push({type:'CREDIT',amount:amnt})
         return userDetails[acno]['balance']
 
       }
@@ -73,6 +77,7 @@ export class DataService {
       if(password==userDetails[acno]["password"]){
         if(acno <=userDetails[acno]["balance"]){
           userDetails[acno]['balance']-=amnt
+          userDetails[acno]["trnsaction"].push({type:'DEBIT',amount:amnt})
           return userDetails[acno]['balance']
         }
         else{
@@ -90,7 +95,10 @@ export class DataService {
       return false
     }
   }
+gettransaction(acno:any){
+  return this.userDetails[acno]["trnsaction"]
 
+}
 
 
 }
