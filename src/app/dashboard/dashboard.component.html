@@ -6,7 +6,7 @@
   </div>
   <div id="a1" class="mb-3 form-check">
       
-    <a style="background: #00000070;border-radius: 3px; text-decoration: none; color:#ffffffb5; "  routerLink="/transaction">view transaction history</a>
+    <a style="background: #00000070;border-radius: 3px; text-decoration: none; color:#ffffffb5; margin-left: 9px;"  routerLink="/transaction">view transaction history</a>
   </div>
 
 
@@ -16,20 +16,21 @@
   
   <div  id="center" class="container">
   
-   <form class="form-container" (ngSubmit)="deposit()" >
+   <form class="form-container" (ngSubmit)="deposit()" [formGroup]="depositForm">
      <h3>DEPOSIT</h3>
       <div class="mb-3">
         <label for="text" class="form-label">ac number </label>
-        <input name="acno" [(ngModel)]="acno" type="text" placeholder="ac number" class="form-control" id="acno" aria-describedby="emailHelp" >
+        <input name="acno" formControlName="acno" type="text" placeholder="ac number" class="form-control" id="acno" aria-describedby="emailHelp" >
         
       </div>
+      
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input name="psw"  [(ngModel)]="psw" type="password" placeholder="Password" class="form-control" id="psw">
+        <input name="psw"  formControlName="psw" type="password" placeholder="Password" class="form-control" id="psw">
       </div>
       <div class="mb-3">
         <label for="text" class="form-label">depsit amount</label>
-        <input name="amnt" [(ngModel)]="amnt" type="text" placeholder="amount" class="form-control" id="amnt" aria-describedby="emailHelp" >
+        <input name="amnt" formControlName="amnt" type="text" placeholder="amount" class="form-control" id="amnt" aria-describedby="emailHelp" >
         
       </div>
       
@@ -47,20 +48,20 @@
   
   <div  id="center" class="container">
   
-   <form class="form-container"(ngSubmit)="withdraw()" >
+   <form class="form-container"(ngSubmit)="withdraw()" [formGroup]="withdrawForm">
      <h3>WITHDRAW</h3>
       <div class="mb-3">
         <label for="text" class="form-label">ac number </label>
-        <input name="acno1" [(ngModel)]="acno1" type="text" placeholder="ac number" class="form-control" id="acno1" aria-describedby="emailHelp" >
+        <input name="acno1" formControlName="acno1" type="text" placeholder="ac number" class="form-control" id="acno1" aria-describedby="emailHelp" >
         
       </div>
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input name="psw"  [(ngModel)]="psw1"  type="password" placeholder="Password" class="form-control" id="psw">
+        <input name="psw"  formControlName="psw1"  type="password" placeholder="Password" class="form-control" id="psw">
       </div>
       <div class="mb-3">
         <label for="text" class="form-label">withdraw amount</label>
-        <input name="amnt1"  [(ngModel)]="amnt1" type="text" placeholder="amount" class="form-control" id="amnt1" aria-describedby="emailHelp" >
+        <input name="amnt1" formControlName="amnt1" type="text" placeholder="amount" class="form-control" id="amnt1" aria-describedby="emailHelp" >
         
       </div>
       

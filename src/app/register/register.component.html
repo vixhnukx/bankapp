@@ -4,22 +4,34 @@
   
   <div  id="center" class="container">
   
-   <form class="form-container" (ngSubmit)="register()">
+   <form class="form-container" (ngSubmit)="register()" [formGroup]="registerForm">
      <h3>REGISTER</h3>
       <div class="mb-3">
         <label for="text" class="form-label">ac number </label>
-        <input name="acno" [(ngModel)]="acno" placeholder="ac number" type="text" class="form-control" id="acid" aria-describedby="emailHelp" >
+        <input name="acno" formControlName="acno" placeholder="ac number" type="text" class="form-control" id="acid" aria-describedby="emailHelp" >
         
+      </div>
+      <div *ngIf="this.registerForm.get('acno')?.errors && this.registerForm.get('uname')?.touched">
+        <p class="text-danger">pleas enter valid account number</p>
       </div>
       <div class="mb-3">
         <label for="text" class="form-label">username </label>
-        <input name="uname"[(ngModel)]="uname" placeholder="username" type="text" class="form-control" id="uname" aria-describedby="emailHelp" >
+        <input name="uname" formControlName="uname" placeholder="username" type="text" class="form-control" id="uname" aria-describedby="emailHelp" >
         
       </div>
+    
+
+    <div *ngIf="this.registerForm.get('uname')?.errors && this.registerForm.get('uname')?.touched">
+      <p class="text-danger">pleas enter valid username</p>
+    </div>
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input name="psw" [(ngModel)]="psw"  type="password" placeholder="Password" class="form-control" id="psw">
+        <input name="psw" formControlName="psw"  type="password" placeholder="Password" class="form-control" id="psw">
       </div>
+    
+    <div *ngIf="this.registerForm.get('psw')?.errors && this.registerForm.get('uname')?.touched">
+      <p class="text-danger">pleas enter valid password</p>
+    </div>
       
       <button id="bt"  type="submit"  class="btn btn-primary btn-block">signup</button>
    </form>

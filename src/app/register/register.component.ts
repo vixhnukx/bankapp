@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from 'src/services/data.service';
 
@@ -9,23 +10,29 @@ import { DataService } from 'src/services/data.service';
 })
 export class RegisterComponent {
 
-  acno = ''
-  uname = ''
-  psw = ''
+  // acno = ''
+  // uname = ''
+  // psw = ''
 
 
-  constructor(private ds: DataService, private router:Router) {
+  constructor(private ds: DataService, private router: Router, private fb: FormBuilder) {
 
 
 
   }
+  registerForm = this.fb.group({
+    acno: ['', [Validators.required, Validators.pattern('[0-9]+')]],
+    uname: ['', [Validators.required, Validators.pattern('[a-zA-Z]+')]],
+    psw: ['', [Validators.required, Validators.pattern('[0-9]+')]]
+  })
 
   register() {
 
-    var acno = this.acno
-    var uname = this.uname
-    var psw = this.psw
+    var acno = this.registerForm.value.acno
+    var uname = this.registerForm.value.uname
+    var psw = this.registerForm.value.psw
 
+  if (this.registerForm.valid){
     const result = this.ds.register(acno, uname, psw)
 
     if (result) {
@@ -40,5 +47,11 @@ export class RegisterComponent {
     }
 
   }
+  else{
+    alert('invalid form')
+  }
+  }
+      
+  
 
 }

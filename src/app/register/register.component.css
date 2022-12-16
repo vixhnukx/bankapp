@@ -1,7 +1,7 @@
 #center{
     justify-content: center;
     border-radius: 18px;
-    height:347px;
+    /* height:347px; */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-top: 20vh;
     width: 380px;

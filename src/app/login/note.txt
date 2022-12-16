@@ -65,6 +65,7 @@ Angular directives
 
      - ngFor - can directly apply in html to access elements from array
 
+     - nfIf
 
 
 form validation in angular
@@ -75,3 +76,44 @@ form validation in angular
      1. template driven form
 
      2. model driven form 
+
+               -reactive form
+               ...............
+
+               reactiveFormsModule - module used to create model forms
+
+               formBuilder          - class of reactiveFormsModule
+
+                    - group,array,control
+
+
+
+validate model form
+....................
+
+
+validtor  -  a class in angular it inckudes methords for applay validation
+
+-access error in validtor rule
+
+
+          this.registerForm.get('uname').error
+
+
+                              -valid
+                              
+                              -invalid
+
+          if(this.registerForm.get('uname')?.error){
+               //*ngIf
+          }
+
+
+
+ local storage in angular
+ ........................
+
+
+ - store  localStorage.setItem()
+ - access localStorage.getItem()
+ - delete localStorage.removeItem()

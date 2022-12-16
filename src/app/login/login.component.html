@@ -6,16 +6,22 @@
 
 <div  id="center" class="container">
 
- <form class="form-container" (ngSubmit)="login()">
+ <form class="form-container" (ngSubmit)="login()" [formGroup]="loginForm">
    <h3>LOGIN</h3>
     <div class="mb-3">
       <label for="text" class="form-label">ac number </label>
-      <input name="acno" [(ngModel)]="acno" type="text" [placeholder]="data" class="form-control" id="acid" aria-describedby="emailHelp" >
+      <input name="acno" formControlName="acno" type="text" [placeholder]="data" class="form-control" id="acid" aria-describedby="emailHelp" >
       
+    </div>
+    <div *ngIf="this.loginForm.get('acno')?.errors && this.loginForm.get('acno')?.touched">
+      <p class="text-danger">pleas enter valid account number</p>
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input name="psw"  [(ngModel)]="psw" type="password" placeholder="Password" class="form-control" id="psw">
+      <input name="psw"  formControlName="psw" type="password" placeholder="Password" class="form-control" id="psw">
+    </div>
+    <div *ngIf="this.loginForm.get('psw')?.errors && this.loginForm.get('psw')?.touched">
+      <p class="text-danger">pleas enter valid password</p>
     </div>
     <div id="a1" class="mb-3 form-check">
       
